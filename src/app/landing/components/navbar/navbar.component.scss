@@ -1,0 +1,27 @@
+.navbar{
+    width: 100%;
+    height: 55px;
+    margin-bottom: 5px;
+    background-color: snow;
+    border-bottom: .5px grey solid;
+
+    -webkit-box-shadow: 0px 6px 106px -17px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 6px 106px -17px rgba(0,0,0,1);
+    box-shadow: 0px 6px 106px -17px rgba(0,0,0,1);
+
+    img{
+        height: 38px;
+    }
+
+    .navbarItems{
+        text-align: right;
+
+        a{
+            padding: 5px 20px;
+        }
+    }
+}
+
+.row{
+    margin: 0;
+}
