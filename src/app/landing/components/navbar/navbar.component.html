@@ -3,7 +3,7 @@
         <img src="/assets/img/favicon.png" alt="">
     </div>
     <div class="col-9 navbarItems">
-        <a *ngFor="let item of navbarItems" href={{item.route}}>
+        <a *ngFor="let item of navbarItems" [routerLink]="[item.route]">
             {{item.name}}
         </a>
     </div>

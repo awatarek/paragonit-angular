@@ -27,11 +27,11 @@ export class NavbarComponent implements OnInit {
       },
       {
         name: 'O nas',
-        route: 'about'
+        route: '/about'
       },
       {
         name: 'Kontakt',
-        route: 'contact'
+        route: '/contact'
       },
 
     ]
