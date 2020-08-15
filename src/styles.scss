@@ -3,9 +3,6 @@
 html, body { height: 100%; }
 body { 
     margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background: hsla(282, 89%, 70%, 1);
-    background: linear-gradient(225deg, hsla(282, 89%, 70%, 0.9) 0%, hsla(187, 100%, 69%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(282, 89%, 70%, 0.9) 0%, hsla(187, 100%, 69%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(282, 89%, 70%, 0.9) 0%, hsla(187, 100%, 69%, 1) 100%);
+    background: rgb(64,93,230);
+    background: linear-gradient(90deg, rgba(64,93,230,1) 0%, rgba(225,48,108,1) 100%);
 }

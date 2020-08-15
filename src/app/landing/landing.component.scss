@@ -1,6 +1,19 @@
-body{
-    background: hsla(282, 89%, 70%, 1);
-    background: linear-gradient(225deg, hsla(282, 89%, 70%, 0.9) 0%, hsla(187, 100%, 69%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(282, 89%, 70%, 0.9) 0%, hsla(187, 100%, 69%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(282, 89%, 70%, 0.9) 0%, hsla(187, 100%, 69%, 1) 100%);
+.landing-content{
+    color: white;
+    width: 100%;
+    .landing-first{
+        margin: 50px auto;
+        width: 95%;
+        .main-img{
+            width: 50%;
+            float: left;
+        }
+        .main-text{
+            float: left;
+            padding: 15% 10%;
+            width: 40%;
+            font-size: 36px;
+            line-height: 1;
+        }
+    }
 }
