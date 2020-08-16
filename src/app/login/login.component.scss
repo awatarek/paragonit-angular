@@ -1,0 +1,27 @@
+.panel{
+	width: 600px;
+	height: 350px;
+	margin: auto;
+	background-color: whitesmoke;
+	padding: 15px;
+	border-radius: 15px;
+	button{
+		padding: 20px 50px;
+		margin: 20px;
+
+	}
+}
+
+input[type=text], input[type=password]{
+	width: 70%;
+	border: 0;
+	margin: 0 auto;
+	border-bottom: 1px black solid;
+	height: 25px;
+	margin-top: 20px;
+	background-color: transparent;
+	&:focus{
+		background-color: white;
+		border: rgb(80, 56, 64) 1px solid;
+	}
+}

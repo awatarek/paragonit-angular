@@ -1,0 +1,9 @@
+<p>login works!</p>
+<div class="panel">
+	<form [formGroup]="loginForm" name="loginForm">
+		<input type="text" formControlName="login" placeholder="nazwa użytkownika" name="login" id="login">
+		<p *ngIf="loginForm.errors">xdd</p>
+		<input type="password" formControlName="password" placeholder="hasło">
+	</form>
+	<button (click)="test()" routerLink="/panel">Login</button>
+</div>

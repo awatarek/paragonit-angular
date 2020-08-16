@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarItemModel } from '../../../shared';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'landing-navbar',
@@ -9,15 +8,12 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   public navbarItems: NavbarItemModel[];
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.loadNavItems();
   }
 
-  public navigateTo(route){
-    this.router.navigate[route]
-  }
   
   public loadNavItems(): void{
     this.navbarItems = [
@@ -33,7 +29,10 @@ export class NavbarComponent implements OnInit {
         name: 'Kontakt',
         route: '/contact'
       },
-
+      {
+        name: 'Logowanie',
+        route: '/login'
+      },
     ]
   }
 }
