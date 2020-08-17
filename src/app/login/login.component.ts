@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, MinLengthValidator }  from '@angular/forms';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AbstractControl } from '@angular/forms';
+import { AuthService } from '../shared';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { AbstractControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
   }

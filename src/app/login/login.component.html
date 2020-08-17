@@ -1,5 +1,15 @@
 <p>login works!</p>
 <div class="panel">
+	<div *ngIf="auth.user$ | async as user; else login">
+		{{ user | json}}
+		<hr>
+		<button (click)="auth.signOut()"></button>
+	</div>
+
+	<ng-template #login>
+		<button (click)="auth.googleSignin()">google</button>
+	</ng-template>
+
 	<form [formGroup]="loginForm" name="loginForm">
 		<input type="text" formControlName="login" placeholder="nazwa użytkownika" name="login" id="login">
 		<p *ngIf="loginForm.errors">xdd</p>
