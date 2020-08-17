@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -34,20 +34,22 @@ export class AuthService {
   async googleSignin(){
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
-    return this.updateUserData(credential.user)
+    return [this.updateUserData(credential.user),
+        this.router.navigate(['/panel'])]
+
   }
   
   async signOut(){
     await this.afAuth.signOut();
-    return this.router.navigate(['/']);
+    return this.router.navigate(['/login']);
   }
 
-  private updateUserData({ uid, email, displayName}: User) {    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
+  private updateUserData({ uid, email, displayName, imagesID}: User) {const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
 
     const data: User = { 
       uid, 
       email, 
-      displayName, 
+      displayName
     } 
 
     return userRef.set(data, { merge: true })
@@ -58,4 +60,6 @@ export class AuthService {
 export interface User {
   uid: string;
   email: string;
-  displayName?: string;}
+  displayName?: string;
+  imagesID?: number[]
+}
