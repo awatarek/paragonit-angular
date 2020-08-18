@@ -1,0 +1,19 @@
+panel-navbar{
+    display: block;
+    width: 100%;
+    height: 5%;
+}
+
+panel-sidebar, panel-content{
+    float: left;
+}
+
+panel-sidebar{
+    width: 15%;
+    height: 95%;
+}
+
+panel-content{
+    width: 85%;
+    height: 95%;
+}

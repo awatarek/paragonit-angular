@@ -7,6 +7,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 
 import { Observable, of } from 'rxjs';
 import { switchMap, first } from 'rxjs/operators';
+import { DbconnectService } from './dbconnect.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthService implements OnInit{
   constructor(
       private afAuth: AngularFireAuth,
       private afs: AngularFirestore,
-      private router: Router
+      private router: Router,
   ) { 
     this.user$ = this.afAuth.authState.pipe(
       switchMap( user => {
