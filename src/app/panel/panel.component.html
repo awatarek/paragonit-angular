@@ -1,0 +1,7 @@
+<div *ngIf="auth.user$ | async as user;">
+    {{ user | json}}
+</div>
+
+<hr><i class="fa fa-american-sign-language-interpreting fa-5x" aria-hidden="true"> </i>
+<button (click)="auth.facebookSignin()" class="col-4"><i class="fa fa-facebook"></i></button>
+<button (click)="auth.signOut()"></button>
