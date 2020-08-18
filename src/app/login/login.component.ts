@@ -14,8 +14,10 @@ export class LoginComponent implements OnInit {
   
   constructor(public auth: AuthService, private router: Router) { }
 
-  ngOnInit() {
-
+  async ngOnInit() {
+    if(await this.auth.returnLoginState()){
+      this.router.navigate(['./panel'])
+    }
   }
 
 }

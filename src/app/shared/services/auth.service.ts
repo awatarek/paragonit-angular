@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { auth } from 'firebase/app';
@@ -11,9 +11,10 @@ import { switchMap, first } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnInit{
 
   user$: Observable<User>;
+
 
   constructor(
       private afAuth: AngularFireAuth,
@@ -31,17 +32,39 @@ export class AuthService {
     )
   }
 
+  ngOnInit() {
+  }
+
   async googleSignin(){
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
     return [this.updateUserData(credential.user),
         this.router.navigate(['/panel'])]
+  }
 
+  async facebookSignin(){
+    const provider = new auth.FacebookAuthProvider();
+    const credential = await this.afAuth.signInWithPopup(provider);
+    return [this.updateUserData(credential.user),
+        this.router.navigate(['/panel'])]
   }
   
   async signOut(){
     await this.afAuth.signOut();
     return this.router.navigate(['/login']);
+  }
+
+  private loginState(){
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
+  async returnLoginState(){
+    const user = await this.loginState();
+    if(user){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   private updateUserData({ uid, email, displayName, imagesID}: User) {const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
@@ -52,9 +75,9 @@ export class AuthService {
       displayName
     } 
 
-    return userRef.set(data, { merge: true })
-
+    return userRef.set(data, { merge: true });
   }
+
 }
 
 export interface User {
