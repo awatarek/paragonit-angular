@@ -85,7 +85,7 @@ export class AuthService implements OnInit{
       uid, 
       email, 
       displayName,
-      imagesID
+      /*imagesID*/
     } 
 
     return userRef.set(data, { merge: true });
