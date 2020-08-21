@@ -5,6 +5,10 @@
 	background-color: whitesmoke;
 	padding: 30px;
 	border-radius: 15px;
+	.half-panel{
+		width: 50%;
+		float: left;
+	}
 	.login-main{
 		text-align: center;
 		font-weight: 500;
@@ -13,30 +17,27 @@
 	.login-button{
 		width: 100%;
 		height: 100%;
-		
+		display: grid;		   
 		button{
-			padding: 20px 50px;
+			height: 80px;
+			width: 80px;
 			margin: 20px;
 			font-size: 30px;
 			border-radius: 15px;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			top: 50%;
+
 			.fa-facebook{
 				color: #4267B2;
-				&:hover{
-					background-color: #4267B2;
-					border-color: #4267B2;
-					color: white;
-					transition: .7s;
-				}
 			}
-
+			&:hover .fa-facebook, &:hover .fa-google{
+				color: black;
+				transition: .7s;
+			}
 			.fa-google{
 				color: #4285F4;
-				&:hover{
-					background-color: #4285F4;
-					border-color: #4285F4;
-					color: white;
-					transition: .7s;
-				}
 			}
 		}
 	}

@@ -11,13 +11,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
-  constructor(public auth: AuthService, private router: Router) { }
+  public formGroup: FormGroup;
+  constructor(public auth: AuthService, private router: Router, private fb: FormBuilder) { }
 
   async ngOnInit() {
+    this.createFormGroup();
     if(await this.auth.returnLoginState()){
       this.router.navigate(['./panel'])
     }
+  }
+
+  public createFormGroup(): void{
+    this.formGroup = new FormGroup({
+      mail: new FormControl('',),
+      password: new FormControl('',),
+    })
   }
 
 }

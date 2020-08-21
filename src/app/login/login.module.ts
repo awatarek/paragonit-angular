@@ -4,6 +4,7 @@ import { LoginComponent } from './login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared';
+import { MatFormFieldModule }  from '@angular/material/form-field';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -13,6 +14,8 @@ import { SharedModule } from '../shared';
     FormsModule,
     RouterModule,
     SharedModule,
+    MatFormFieldModule,
+
   ]
 })
 export class LoginModule { }

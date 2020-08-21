@@ -5,10 +5,10 @@
 	</div>
 
 	<ng-template #login>
-		<div class="login-main">Zaloguj się za pomocą google</div>
-		<div class="login-button container">
-			<button (click)="auth.googleSignin()" class="col-4"><i class="fa fa-google"></i></button>
-			<button (click)="auth.facebookSignin()" class="col-4"><i class="fa fa-facebook"></i></button>
-		</div>	
+		<div>		
+			<div class="login-main">Zaloguj się</div>
+			<div class="login-button">
+			<button (click)="auth.googleSignin()"><i class="fa fa-google"></i></button>			</div>	
+		</div>
 	</ng-template>
 </div>
