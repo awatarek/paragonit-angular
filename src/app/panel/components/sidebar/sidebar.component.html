@@ -1,6 +1,11 @@
 <div class="navbar-sidebar">
     <img src="/assets/img/favicon.png">
-    <div *ngFor="let item of sidebarItem">
-        <i [ngClass]="[item.icon ,item.iconClass]"></i>
-    </div>
+    <span *ngFor="let item of sidebarItem">
+        <div *ngIf="item.route" [routerLink]="[item.route]">
+            <i [ngClass]="[item.icon ,item.iconClass]"></i>
+        </div>
+        <div *ngIf="item.itemFunction" (click)="item.itemFunction()">
+            <i [ngClass]="[item.icon ,item.iconClass]"></i>
+        </div>
+    </span>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidenavItemModel } from 'src/app/shared';
+import { SidenavItemModel, AuthService } from 'src/app/shared';
 
 @Component({
   selector: 'panel-sidebar',
@@ -8,7 +8,7 @@ import { SidenavItemModel } from 'src/app/shared';
 })
 export class SidebarComponent implements OnInit {
   public sidebarItem: SidenavItemModel[];
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
     this.loadSideNavItems();
@@ -19,22 +19,27 @@ export class SidebarComponent implements OnInit {
       {
         name: 'panel',
         icon: 'fa-home',
-        iconClass: 'fa'
+        iconClass: 'fa',
+        route: '/panel',
       },
       {
-        name: 'panel',
+        name: 'receipt',
         icon: 'fa-th',
-        iconClass: 'fa'
+        iconClass: 'fa',
+        route: '/receipt',
+
       },
       {
         name: 'panel',
         icon: 'fa-money',
-        iconClass: 'fa'
+        iconClass: 'fa',
+        route: 'finance',
       },
       {
         name: 'panel',
         icon: 'fa-sign-out',
-        iconClass: 'fa'
+        iconClass: 'fa',
+        itemFunction: () => this.auth.signOut(),
       },
     ]
   }
