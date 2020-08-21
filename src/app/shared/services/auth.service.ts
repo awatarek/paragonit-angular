@@ -7,6 +7,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 
 import { Observable, of } from 'rxjs';
 import { switchMap, first } from 'rxjs/operators';
+import { DbconnectService } from './dbconnect.service';
+import * as firebaseFunction from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class AuthService implements OnInit{
   constructor(
       private afAuth: AngularFireAuth,
       private afs: AngularFirestore,
-      private router: Router
+      private router: Router,
   ) { 
     this.user$ = this.afAuth.authState.pipe(
       switchMap( user => {
@@ -77,18 +79,17 @@ export class AuthService implements OnInit{
     }
   }
 
-
   private updateUserData({ uid, email, displayName, imagesID}: User) {const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
 
     const data: User = { 
       uid, 
       email, 
-      displayName
+      displayName,
+      imagesID
     } 
 
     return userRef.set(data, { merge: true });
   }
-
 }
 
 export interface User {
