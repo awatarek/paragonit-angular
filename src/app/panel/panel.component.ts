@@ -13,10 +13,7 @@ export class PanelComponent implements OnInit {
   ngOnInit() {
     this.data();
   }
-
-  public linkFB(){
-    this.auth.linkFb();
-  }
+  
   public data(){
     /*let data = this.dbConn.showData('urlImages', '7UIK5oX2v0HgEHigDwYw');
     console.log(data);*/
