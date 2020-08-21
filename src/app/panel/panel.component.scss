@@ -1,0 +1,22 @@
+@import "../shared/styles/app-colors.scss";
+
+panel-navbar{
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+panel-sidebar, panel-content{
+    float: left;
+}
+
+panel-sidebar{
+    width: 70px;
+    height: 100%;
+}
+
+panel-content{
+    background-color: $second;
+    width: calc(100% - 70px);
+    height: 100%;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared';
+import { AuthService, DbconnectService } from '../shared';
 
 @Component({
   selector: 'app-panel',
@@ -8,9 +8,18 @@ import { AuthService } from '../shared';
 })
 export class PanelComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, public dbConn: DbconnectService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.data();
+  }
+
+  public linkFB(){
+    this.auth.linkFb();
+  }
+  public data(){
+    /*let data = this.dbConn.showData('urlImages', '7UIK5oX2v0HgEHigDwYw');
+    console.log(data);*/
   }
 
 }

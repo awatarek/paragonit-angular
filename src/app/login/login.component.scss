@@ -16,9 +16,14 @@
 		
 		button{
 			padding: 20px 50px;
-			margin: 20px;
 			font-size: 30px;
 			border-radius: 15px;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+
 			.fa-facebook{
 				color: #4267B2;
 				&:hover{
