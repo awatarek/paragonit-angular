@@ -1,17 +1,20 @@
 import { Routes } from '@angular/router';
 import { PanelComponent } from './panel.component';
 import { AuthGuard } from '../shared';
+import { FinanceComponent } from './components/finance/finance.component';
 
 
 export const panelRoutes: Routes = [
     { 
         path: '',
         component: PanelComponent, 
-        canActivate: [ AuthGuard ]
+        canActivate: [ AuthGuard ],
+        pathMatch: 'full'
     },
     {
         path: 'finance',
-        component: PanelComponent, 
-        canActivate: [ AuthGuard ]
+        component: FinanceComponent,
+        outlet: 'panelOutlet',
+        canActivate: [ AuthGuard ],
     }
 ];
