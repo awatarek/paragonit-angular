@@ -8,6 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap, first } from 'rxjs/operators';
 import { DbconnectService } from './dbconnect.service';
+import * as firebaseFunction from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -68,12 +69,23 @@ export class AuthService implements OnInit{
     }
   }
 
+  async linkFb(){
+    const provider = new auth.FacebookAuthProvider();
+    (await this.afAuth.currentUser).linkWithPopup(provider);
+  }
+
+  async linkGo(){
+    const provider = new auth.GoogleAuthProvider();
+    (await this.afAuth.currentUser).linkWithPopup(provider);
+  }
+
   private updateUserData({ uid, email, displayName, imagesID}: User) {const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
 
     const data: User = { 
       uid, 
       email, 
-      displayName
+      displayName,
+      imagesID
     } 
 
     return userRef.set(data, { merge: true });

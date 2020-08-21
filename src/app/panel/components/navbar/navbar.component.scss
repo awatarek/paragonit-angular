@@ -1,7 +1,9 @@
+@import '../../../shared/styles/app-colors.scss';
+
 .navbar-contetn{
     width: 100%;
     height: 100%;
-    background-color: snow;
+    background-color: $first;
     border-bottom: .5px grey solid;
 
     -webkit-box-shadow: 0px 6px 106px -17px rgba(0,0,0,1);

@@ -1,7 +1,9 @@
+@import "../shared/styles/app-colors.scss";
+
 panel-navbar{
     display: block;
     width: 100%;
-    height: 5%;
+    height: 50px;
 }
 
 panel-sidebar, panel-content{
@@ -9,11 +11,12 @@ panel-sidebar, panel-content{
 }
 
 panel-sidebar{
-    width: 15%;
-    height: 95%;
+    width: 70px;
+    height: 100%;
 }
 
 panel-content{
-    width: 85%;
-    height: 95%;
+    background-color: $second;
+    width: calc(100% - 70px);
+    height: 100%;
 }
