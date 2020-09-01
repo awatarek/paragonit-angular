@@ -12,9 +12,13 @@ export const panelRoutes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'receipt',
+        component: FinanceComponent,
+        canActivate: [ AuthGuard ],
+    },
+    {
         path: 'finance',
         component: FinanceComponent,
-        outlet: 'panelOutlet',
         canActivate: [ AuthGuard ],
-    }
+    },
 ];

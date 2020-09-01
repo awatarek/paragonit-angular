@@ -1,22 +1,27 @@
 import { Injectable, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbconnectService implements OnInit{
   db = firebase.firestore();
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(){
   }
 
-  public showData(collection: string, doc: string): any{
-    let data = this.db.collection(collection).doc(doc);
-    data.onSnapshot(snap => {
-      let dataContent = snap.data();
-      console.log(dataContent);
-      return dataContent;
+  public async showData(collection: string, doc: string): Promise<any>{
+    let data = await this.db.collection(collection).doc(doc);
+    return new Promise(resolve => {
+      data.onSnapshot(async snap => {
+        resolve(snap.data());
+      })
     });
+  }
+
+  public async getReceipt(){
+    return await this.showData('recipe', await this.auth.getUserUId());
   }
 }

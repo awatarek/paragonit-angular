@@ -1,1 +1,16 @@
 <p>content works!</p>
+<div class="receipts">
+    <div *ngFor="let item of this.receipt" class="receipt">
+        {{item[0]}}
+        <hr>
+        {{item[1]}}
+        <hr>
+        Total: <b>{{item[2]}}</b> PLN
+        <hr>
+        <div>
+            <button>Edit</button>
+            <button>View Details</button>
+            <button>Remove</button>
+        </div>
+    </div>
+</div>
