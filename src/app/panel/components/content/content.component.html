@@ -1,16 +1,23 @@
 <p>content works!</p>
+<h2>Work in progress</h2>
+<form [formGroup]="newReceiptGroup">
+    <input type="text" formControlName="name"  name="name">
+    <input type="text" formControlName="description" name="description">
+    <input type="number" formControlName="price" name="price" step=".01">
+    <button value="dodaj" (click)="newReceipt()"></button>
+</form>
 <div class="receipts">
     <div *ngFor="let item of this.receipt" class="receipt">
-        {{item[0]}}
+        {{item["name"]}}
         <hr>
-        {{item[1]}}
+        {{item["description"]}}
         <hr>
-        Total: <b>{{item[2]}}</b> PLN
+        Total: <b>{{item["price"]}}</b> PLN
         <hr>
         <div>
             <button>Edit</button>
             <button>View Details</button>
-            <button>Remove</button>
+            <button (click)="removeReceipt(item)">Remove</button>
         </div>
     </div>
 </div>

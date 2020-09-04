@@ -1,9 +1,10 @@
 export class ParagonList {
-    public list: paragon[]
+    public list: Paragon[]
 }
 
-export class paragon{
+export class Paragon{
     public name: string;
     public description: string;
-    public price: number;
+    public price: string;
+    public receiptIndex: number;
 }

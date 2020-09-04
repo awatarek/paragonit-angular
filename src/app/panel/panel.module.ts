@@ -7,6 +7,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ContentComponent } from './components/content/content.component';
 import { panelRoutes } from './panel-routes';
 import { FinanceComponent } from './components/finance/finance.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [PanelComponent, SidebarComponent, ContentComponent, FinanceComponent],
@@ -16,6 +18,8 @@ import { FinanceComponent } from './components/finance/finance.component';
     RouterModule,
     RouterModule.forChild(panelRoutes),
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PanelModule { }
