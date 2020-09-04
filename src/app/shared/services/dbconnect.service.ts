@@ -8,8 +8,6 @@ import { AuthService } from './auth.service';
 export class DbconnectService implements OnInit{
   db = firebase.firestore();
   public ReceiptNumber;
-  public newReceiptArray;
-  public ReceiptArray: Array<any>;
   constructor(public auth: AuthService) { }
 
   async ngOnInit(){
