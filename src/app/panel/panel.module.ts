@@ -8,7 +8,9 @@ import { ContentComponent } from './components/content/content.component';
 import { panelRoutes } from './panel-routes';
 import { FinanceComponent } from './components/finance/finance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [PanelComponent, SidebarComponent, ContentComponent, FinanceComponent],
@@ -19,7 +21,10 @@ import { BrowserModule } from '@angular/platform-browser';
     RouterModule.forChild(panelRoutes),
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatMenuModule,
+    MatIconModule,
   ]
 })
 export class PanelModule { }

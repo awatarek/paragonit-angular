@@ -15,3 +15,12 @@
         background-color: white;
     }
 }
+
+.mat-elevation-z8{
+    width: 80%;
+    margin: 10%;
+    .mat-menu-trigger {
+        background-color: transparent;
+        border: 0;
+    }
+}

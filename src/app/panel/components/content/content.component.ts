@@ -9,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ContentComponent implements OnInit {
   public receipt: any;
+  public displayedColumns: string[] = ['position', 'name', 'description', 'price', 'toolbar'];
+
   constructor(public dbConn: DbconnectService) { }
 
   async ngOnInit(): Promise<void> {
