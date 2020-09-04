@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, DbconnectService } from '../shared';
+import { AuthService, DbconnectService, ParagonList } from '../shared';
+
 
 @Component({
   selector: 'app-panel',
@@ -7,16 +8,11 @@ import { AuthService, DbconnectService } from '../shared';
   styleUrls: ['./panel.component.scss']
 })
 export class PanelComponent implements OnInit {
-
+  public userData: ParagonList;
   constructor(public auth: AuthService, public dbConn: DbconnectService) { }
 
-  ngOnInit() {
-    this.data();
+  async ngOnInit() {
   }
-  
-  public data(){
-    /*let data = this.dbConn.showData('urlImages', '7UIK5oX2v0HgEHigDwYw');
-    console.log(data);*/
-  }
+
 
 }

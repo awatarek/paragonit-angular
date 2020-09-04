@@ -34,32 +34,15 @@ export class AuthService implements OnInit{
     )
   }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
   async googleSignin(){
     const provider = new auth.GoogleAuthProvider();
-    const credential = await this.afAuth.signInWithPopup(provider)
+    const credential = await this.afAuth.signInWithPopup(provider);
     return [this.updateUserData(credential.user),
         this.router.navigate(['/panel'])]
   }
-
-  /*async facebookSignin(){
-    const provider = new auth.FacebookAuthProvider();
-    const credential = await this.afAuth.signInWithPopup(provider).then(function(result): any{
-      this.updateUserData(credential.user),
-      this.router.navigate(['/panel'])
-    }).catch(async error =>{
-      console.log(error)
-        this.afAuth.fetchSignInMethodsForEmail(error.email)
-        .then(info =>{
-          console.log(info);
-        })
-        if(error.code == 'auth/account-exists-with-different-credential'){
-          
-        }
-      });
-  }*/
   
   async signOut(){
     await this.afAuth.signOut();
@@ -77,6 +60,10 @@ export class AuthService implements OnInit{
     } else {
       return false;
     }
+  }
+
+  public async getUserUId(){
+    return (await this.afAuth.currentUser).uid
   }
 
   private updateUserData({ uid, email, displayName, imagesID}: User) {const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
