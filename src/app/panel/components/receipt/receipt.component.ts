@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DbconnectService } from 'src/app/shared';
 
 @Component({
@@ -23,9 +23,9 @@ export class ReceiptComponent implements OnInit {
   
   public createNewReceiptGroup(){
      this.newReceiptGroup = new FormGroup({
-      name: new FormControl('',),
-      description: new FormControl('',),
-      price: new FormControl('',),
+      name: new FormControl('', Validators.minLength(4)),
+      description: new FormControl('', Validators.minLength(4)),
+      price: new FormControl('', Validators.minLength(4)),
     })
   }
 

@@ -45,7 +45,6 @@ export class ContentComponent implements OnInit {
   }
 
   public editReceipt(event){
-    console.log(event);
     const dialogRef = this.dialog.open(ReceiptComponent, {
       data: {
         event,
