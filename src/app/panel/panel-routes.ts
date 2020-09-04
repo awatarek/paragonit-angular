@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { PanelComponent } from './panel.component';
 import { AuthGuard } from '../shared';
-import { FinanceComponent } from './components/finance/finance.component';
+import { ReceiptComponent, FinanceComponent } from './components';
 
 
-export const panelRoutes: Routes = [
+export let panelRoutes: Routes = [
     { 
         path: '',
         component: PanelComponent, 
@@ -13,7 +13,7 @@ export const panelRoutes: Routes = [
     },
     {
         path: 'receipt',
-        component: FinanceComponent,
+        component: ReceiptComponent,
         canActivate: [ AuthGuard ],
     },
     {
