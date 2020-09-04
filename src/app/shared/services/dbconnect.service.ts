@@ -67,4 +67,17 @@ export class DbconnectService implements OnInit{
         console.log(err)
       );
     }
+
+    public async updateReceipt(formGroup){
+      await this.getReciptNumber()
+      let location = this.db.collection('receipt').doc(await this.auth.getUserUId());
+      location.set({
+          [formGroup.receiptIndex]: {
+            name: formGroup.name,
+            description: formGroup.description,
+            price: formGroup.price,
+            receiptIndex: formGroup.receiptIndex,
+          },
+        }, { merge: true })
+    }
 }

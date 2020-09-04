@@ -1,26 +1,7 @@
 <p>content works!</p>
 <h2>Work in progress</h2>
-<form [formGroup]="newReceiptGroup">
-    <input type="text" formControlName="name"  name="name">
-    <input type="text" formControlName="description" name="description">
-    <input type="number" formControlName="price" name="price" step=".01">
-    <button value="dodaj" (click)="newReceipt()"></button>
-</form><!---
-<div class="receipts">
-    <div *ngFor="let item of this.receipt" class="receipt">
-        {{item["name"]}}
-        <hr>
-        {{item["description"]}}
-        <hr>
-        Total: <b>{{item["price"]}}</b> PLN
-        <hr>
-        <div>
-            <button>Edit</button>
-            <button>View Details</button>
-            <button (click)="removeReceipt(item)">Remove</button>
-        </div>
-    </div>
-</div>-->
+
+<button mat-button (click)="openDialog()">Open dialog</button>
 
 <table mat-table [dataSource]="this.receipt" class="mat-elevation-z8">
 
@@ -62,7 +43,7 @@
                     <mat-icon>visibility</mat-icon>
                     <span>details</span>
                 </button>
-                <button mat-menu-item class="toolbar-item">
+                <button mat-menu-item class="toolbar-item" (click)="editReceipt(element)">
                     <mat-icon>create</mat-icon>
                     <span>edit</span>
                 </button>
