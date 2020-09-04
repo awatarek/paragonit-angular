@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent },
   {path: 'contact', component: ContactComponent },
   {path: 'login', component: LoginComponent},
-  {path: 'panel', loadChildren: () => import('./panel/panel.module').then(m => m.PanelModule)/*component: PanelComponent, canActivate: [ AuthGuard ]*/},
+  {path: 'panel', loadChildren: () => import('./panel/panel.module').then(m => m.PanelModule)},
 ];
 
 @NgModule({

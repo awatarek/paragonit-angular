@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
         name: 'receipt',
         icon: 'fa-th',
         iconClass: 'fa',
-        route: '/receipt',
+        route: 'receipt',
 
       },
       {

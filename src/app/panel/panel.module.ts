@@ -8,11 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { ReceiptComponent, FinanceComponent, SidebarComponent, ContentComponent } from './components/';
+import { ReceiptComponent, FinanceComponent, SidebarComponent, ContentComponent, MainComponent } from './components/';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [PanelComponent, SidebarComponent, ContentComponent, FinanceComponent, ReceiptComponent],
+  declarations: [PanelComponent, SidebarComponent, ContentComponent, FinanceComponent, MainComponent, ReceiptComponent],
   imports: [
     CommonModule,
     RouterModule,
