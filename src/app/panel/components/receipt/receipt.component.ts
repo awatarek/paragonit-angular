@@ -31,25 +31,35 @@ export class ReceiptComponent implements OnInit {
 
   public updateReceiptGroup(){
     this.ReceiptGroup = new FormGroup({
-      name: new FormControl(this.data.event.name,),
-      description: new FormControl(this.data.event.description,),
-      price: new FormControl(this.data.event.price,),
+      name: new FormControl(this.data.event.name, [Validators.required ,Validators.minLength(4)]),
+      description: new FormControl(this.data.event.description, [Validators.required ,Validators.minLength(4)]),
+      price: new FormControl(this.data.event.price, [Validators.required ,Validators.minLength(4)],),
       receiptIndex: new FormControl(this.data.event.receiptIndex,),
     })
   }
 
   public async newReceipt(){
-    await this.dbConn
-    .postReceipt(
-      this.newReceiptGroup.value
-    );
+    if(this.newReceiptGroup.status == "INVALID"){
+    } else if(this.newReceiptGroup.status == "VALID"){
+      await this.dbConn
+      .postReceipt(
+        this.newReceiptGroup.value
+      );
+      this.dialog.closeAll();
+    }
   }
 
   public async updateReceipt(){
-    await this.dbConn
-    .updateReceipt(
-      this.ReceiptGroup.value
-    );
+    console.log(this.ReceiptGroup);
+    if(this.ReceiptGroup.status == "INVALID"){
+      console.log('błąd')
+    } else if(this.ReceiptGroup.status == "VALID"){
+      await this.dbConn
+      .updateReceipt(
+        this.ReceiptGroup.value
+      );
+      this.dialog.closeAll();
+    }
   }
 
 }

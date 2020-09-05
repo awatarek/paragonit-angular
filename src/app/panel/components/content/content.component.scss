@@ -1,24 +1,7 @@
-.receipts{
-    float: left;
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    .receipt{
-        text-align: center;
-        width: 85%;
-        height: 85%;
-        margin: 7.5%;
-        padding: 10px;
-        border-radius: 20px;
-        background-color: white;
-    }
-}
 
 .mat-elevation-z8{
     width: 80%;
-    margin: 10%;
+    margin: 20px 10%;
     .mat-menu-trigger {
         background-color: transparent;
         border: 0;
