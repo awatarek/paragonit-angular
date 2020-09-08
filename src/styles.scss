@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { 
+html, body {
+    height: 100%; 
     margin: 0; 
-    background: rgb(64,93,230);
-    background: linear-gradient(90deg, rgba(64,93,230,1) 0%, rgba(225,48,108,1) 100%);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }

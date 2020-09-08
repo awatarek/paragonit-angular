@@ -1,0 +1,16 @@
+@import "../../../shared/styles/app-colors.scss";
+
+.footer{
+    background-color: $fourth;
+    color: white;
+}
+
+.subsection-footer
+{
+    float: left;
+    width: 20%;
+    padding: 5px;
+}
+.clear{
+    clear: both;
+}

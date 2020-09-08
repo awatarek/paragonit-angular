@@ -26,6 +26,10 @@ export class NavbarComponent implements OnInit {
         route: '/about'
       },
       {
+        name: 'Cena',
+        route: '/pricing'
+      },
+      {
         name: 'Kontakt',
         route: '/contact'
       },
