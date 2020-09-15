@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarItemModel } from '../../../shared';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'landing-navbar',
@@ -12,6 +13,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadNavItems();
+      AOS.init();
+  
   }
 
   
@@ -24,6 +27,10 @@ export class NavbarComponent implements OnInit {
       {
         name: 'O nas',
         route: '/about'
+      },
+      {
+        name: 'Cena',
+        route: '/pricing'
       },
       {
         name: 'Kontakt',
