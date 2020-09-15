@@ -1,14 +1,16 @@
-<div class="panel">
-	<div *ngIf="auth.user$ | async as user; else login">
-		<button (click)="auth.signOut()">Wyloguj</button>
-		<button routerLink='/panel'>Wróć do panelu</button>
-	</div>
-
-	<ng-template #login>
-		<div>		
-			<div class="login-main">Zaloguj się</div>
-			<div class="login-button">
-			<button (click)="auth.googleSignin()"><i class="fa fa-google"></i></button>			</div>	
+<div class="all">
+	<div class="panel">
+		<div *ngIf="auth.user$ | async as user; else login">
+			<button (click)="auth.signOut()">Wyloguj</button>
+			<button routerLink='/panel'>Wróć do panelu</button>
 		</div>
-	</ng-template>
+	
+		<ng-template #login>
+			<div>		
+				<div class="login-main">Zaloguj się</div>
+				<div class="login-button">
+				<button (click)="auth.googleSignin()"><i class="fa fa-google"></i></button>			</div>	
+			</div>
+		</ng-template>
+	</div>
 </div>

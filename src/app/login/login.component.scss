@@ -1,7 +1,15 @@
+.all, body, html, app-root, app-login{
+	width: 100%;
+	height: 100%;
+	padding: 1px 0;
+	background: rgb(64,93,230);
+	background: linear-gradient(90deg, rgba(64,93,230,1) 0%, rgba(225,48,108,1) 100%);
+}
+
 .panel{
 	width: 600px;
 	height: 350px;
-	margin: 10% auto;
+	margin: 100px auto;
 	background-color: whitesmoke;
 	padding: 30px;
 	border-radius: 15px;
