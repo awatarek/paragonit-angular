@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { DbconnectService } from 'src/app/shared';
+import { MatDialog } from '@angular/material/dialog';
+import { ReceiptDetailsComponent } from './components/';
 
 @Component({
   selector: 'panel-receipt',
@@ -9,57 +9,50 @@ import { DbconnectService } from 'src/app/shared';
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
-  public newReceiptGroup;
-  public ReceiptGroup;
-  constructor(@Inject(MAT_DIALOG_DATA) public data, public dbConn: DbconnectService, public dialog: MatDialog) { }
+  public receipt: any;
+  public displayedColumns: string[] = ['position', 'name', 'description', 'price', 'toolbar'];
 
-  ngOnInit(): void {
-    if(this.data.new == true){
-      this.createNewReceiptGroup();
-    } else if (this.data.new == false){
-      this.updateReceiptGroup();
-    }
-  }
-  
-  public createNewReceiptGroup(){
-     this.newReceiptGroup = new FormGroup({
-      name: new FormControl('', Validators.minLength(4)),
-      description: new FormControl('', Validators.minLength(4)),
-      price: new FormControl('', Validators.minLength(4)),
-    })
+  constructor(public dbConn: DbconnectService, public dialog: MatDialog) { }
+
+  async ngOnInit(): Promise<void> {
+    await this.refreshReceipt();
   }
 
-  public updateReceiptGroup(){
-    this.ReceiptGroup = new FormGroup({
-      name: new FormControl(this.data.event.name, [Validators.required ,Validators.minLength(4)]),
-      description: new FormControl(this.data.event.description, [Validators.required ,Validators.minLength(4)]),
-      price: new FormControl(this.data.event.price, [Validators.required ,Validators.minLength(4)],),
-      receiptIndex: new FormControl(this.data.event.receiptIndex,),
-    })
+  public async removeReceipt(event){
+    await this.dbConn.removeReceipt(event);
+    await this.refreshReceipt();
   }
 
-  public async newReceipt(){
-    if(this.newReceiptGroup.status == "INVALID"){
-    } else if(this.newReceiptGroup.status == "VALID"){
-      await this.dbConn
-      .postReceipt(
-        this.newReceiptGroup.value
-      );
-      this.dialog.closeAll();
-    }
+  public async refreshReceipt() {
+    this.receipt = Object
+    .values(
+      await this.dbConn.getReceipt()
+    );
+    this.receipt.splice(this.receipt.length - 1)
   }
 
-  public async updateReceipt(){
-    console.log(this.ReceiptGroup);
-    if(this.ReceiptGroup.status == "INVALID"){
-      console.log('błąd')
-    } else if(this.ReceiptGroup.status == "VALID"){
-      await this.dbConn
-      .updateReceipt(
-        this.ReceiptGroup.value
-      );
-      this.dialog.closeAll();
-    }
+  public async openDialog() {
+    const dialogRef = this.dialog.open(ReceiptDetailsComponent, {
+      data: {
+        new: true,
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(async result => {
+      await this.refreshReceipt();
+    });
+  }
+
+  public editReceipt(event){
+    const dialogRef = this.dialog.open(ReceiptDetailsComponent, {
+      data: {
+        event,
+        new: false,
+      }
+    });
+    dialogRef.afterClosed().subscribe(async result => {
+      await this.refreshReceipt();
+    });
   }
 
 }
