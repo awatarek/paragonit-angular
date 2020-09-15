@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'landing-main',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
+  public firmCard: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    AOS.init();
+    this.firmCard = false;
   }
+
 
 }
