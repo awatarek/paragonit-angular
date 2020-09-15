@@ -10,9 +10,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { ReceiptComponent, FinanceComponent, SidebarComponent, ContentComponent, MainComponent } from './components/';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReceiptDetailsComponent } from './components/receipt/components/receipt-details/receipt-details.component';
 
 @NgModule({
-  declarations: [PanelComponent, SidebarComponent, ContentComponent, FinanceComponent, MainComponent, ReceiptComponent],
+  declarations: [PanelComponent, SidebarComponent, ContentComponent, FinanceComponent, MainComponent, ReceiptComponent, ReceiptDetailsComponent],
   imports: [
     CommonModule,
     RouterModule,
