@@ -26,20 +26,4 @@ export let panelRoutes: Routes = [
             }
         ]
     }
-    /*{ 
-        path: '',
-        component: PanelComponent, 
-        canActivate: [ AuthGuard ],
-        pathMatch: 'full'
-    },
-    {
-        path: 'receipt',
-        component: ReceiptComponent,
-        canActivate: [ AuthGuard ],
-    },
-    {
-        path: 'finance',
-        component: FinanceComponent,
-        canActivate: [ AuthGuard ],
-    },*/
 ];

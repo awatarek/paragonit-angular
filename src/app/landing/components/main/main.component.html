@@ -18,24 +18,6 @@
 	</div>
 </div>	
 
-<span id="section1"></span>
-<!--<div class="double-postcard" >
-	<a routerLink="/personal">
-		<div class="left-postcard">
-			<div class="module-inside">
-				<h1 class="header-text">Osobisty</h1>
-				<p class="paragraph-text">Zobacz jakie funckję możesz zyskać w wersji dla ciebie</p>
-			</div>
-		</div>
-	</a>
-	<div class="right-postcard" routerLink="/business">
-		<div class="module-inside">
-			<h1 class="header-text">Firmowy</h1>
-			<p class="paragraph-text">Zobacz jakie funckję możesz zyskać w wersji dla twojej firm</p>
-		</div>
-	</div>
-</div>--->
-
 <div class="section2" 
 data-aos="fade-up"
 data-aos-easing="linear"
@@ -105,28 +87,43 @@ data-aos-duration="900">
 	<div class="cards" *ngIf="!this.firmCard" data-aos="zoom-in">
 		<div class="card">
 			<h1>Darmowy</h1>
-			0 PLN
+			<ul>
+				<li>Mozliwość zapisania 10 paragonów w miesiącu</li>
+				<li>Ręczne wprowadzanie paragonów</li>
+				<li>Możliwość logowania na dwóch urządzeniach</li>
+			</ul>
+			<div class="price">0 PLN/miesiąc</div>
 		</div>
 		<div class="card">
 			<h1>Premium</h1>
 			<p>Zawiera wszystko co pakiet darmowy</p>
-			5 PLN
+			<ul>
+				<li>Możliwość zapisania 200 paragonów w miesiącu</li>
+				<li>Wprowadzanie paragonów ze zdjęcia</li>
+				<li>Nieograniczona ilość urządzeń</li>
+				<li>Priorytetowe wsparcie techniczne</li>
+			</ul>
+			<div class="price">5 PLN/miesiąc</div>
+			<div class="price">50 PLN/rocznie</div>
 		</div>
 		<div class="card">
 			<h1>Rodzinny</h1>
 			<p>zawiera wszystko co pakiet premium</p>
-			10PLN
+			<ul>
+				<li>Konto dla 6 osób</li>
+			</ul>
+			<div class="price">10PLN/miesiąc</div>
+			<div class="price">100PLN/rocznie</div>
 		</div>
 	</div>
 	<div class="firm-cards" *ngIf="this.firmCard" data-aos="zoom-in">
 		<div class="card">
 			<h1>Zespołowy</h1>
-			10PLN
+			<div class="price">15PLN</div>
 		</div>
 		<div class="card">
 			<h1>Firmowy</h1>
-			3PLN/Osoba
+			<div class="price">3PLN/Osoba</div>
 		</div>
 	</div>
 </div>
-<!--<landing-footer class="landing-benefits" ></landing-footer>-->
