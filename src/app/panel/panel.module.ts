@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { ReceiptComponent, FinanceComponent, SidebarComponent, ContentComponent, MainComponent } from './components/';
+import { ReceiptComponent, FinanceComponent, SidebarComponent, ContentComponent, MainComponent, SubChange } from './components/';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReceiptDetailsComponent } from './components/receipt/components/receipt-details/receipt-details.component';
+import { MatCardModule } from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
-  declarations: [PanelComponent, SidebarComponent, ContentComponent, FinanceComponent, MainComponent, ReceiptComponent, ReceiptDetailsComponent],
+  declarations: [SubChange, PanelComponent, SidebarComponent, ContentComponent, FinanceComponent, MainComponent, ReceiptComponent, ReceiptDetailsComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -26,6 +28,8 @@ import { ReceiptDetailsComponent } from './components/receipt/components/receipt
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
+    MatCardModule,
+    MatSelectModule,
   ]
 })
 export class PanelModule { }

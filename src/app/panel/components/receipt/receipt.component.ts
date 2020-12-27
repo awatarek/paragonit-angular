@@ -24,11 +24,14 @@ export class ReceiptComponent implements OnInit {
   }
 
   public async refreshReceipt() {
-    this.receipt = Object
-    .values(
-      await this.dbConn.getReceipt()
-    );
-    this.receipt.splice(this.receipt.length - 1)
+    let data = await this.dbConn.getReceipt();
+    if(data != null){
+      this.receipt = Object
+      .values(
+        data
+      );
+      this.receipt.splice(this.receipt.length - 1)
+    }
   }
 
   public async openDialog() {

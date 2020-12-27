@@ -1,1 +1,37 @@
-<p>finance works!</p>
+
+<div *ngIf="loaded">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>Następna płatność</mat-card-title>
+      <mat-card-subtitle>{{getDateOfPayment()}}</mat-card-subtitle>
+      <mat-card-title>Typ płatności</mat-card-title>
+      <mat-card-subtitle>{{typeTranslator(settings)}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button class="card-action" (click)="checkout()" mat-button>Zapłać</button>
+      <button class="card-action" (click)="changeSub()" mat-button>Zmień typ</button>
+      <button class="card-action" (click)="cancel()" mat-button>Anuluj</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div class="clear"></div>
+
+<table *ngIf="loaded">
+  <thead>
+    <tr>
+      <th>Numer</th>
+      <th>Data</th>
+      <th>Waluta</th>
+      <th>Rachunek</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of data.subArray | keyvalue">
+      <td> {{element.key}}</td>
+      <td> {{changeToDate(element.value.date.seconds)}}</td>
+      <td> {{element.value.currency}}</td>
+      <td> <a href='{{element.value.invoce}}'>rachunek</a></td>
+    </tr>
+  </tbody>
+
+</table>

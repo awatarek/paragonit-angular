@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 export class DbconnectService implements OnInit{
   db = firebase.firestore();
   public ReceiptNumber;
-  constructor(public auth: AuthService) { }
+  constructor(private auth: AuthService) { }
 
   async ngOnInit(){
   }
@@ -26,6 +26,10 @@ export class DbconnectService implements OnInit{
     return await this.showData('receipt', await this.auth.getUserUId());
   }
 
+  public async getSubscription(){
+    return await this.showData('subscription', await this.auth.getUserUId());
+  }
+
   public async postReceipt(formGroup){
     await this.getReciptNumber()
     let location = this.db.collection('receipt').doc(await this.auth.getUserUId());
@@ -39,6 +43,21 @@ export class DbconnectService implements OnInit{
         receiptIndex: this.ReceiptNumber,
       }, { merge: true })
     }
+
+    public async postTest(){
+      let location = this.db.collection('subscription').doc(await this.auth.getUserUId());
+      let numberOf = 1;
+      location.set({
+        activeTo: new Date(),
+        numberOf: 1,
+        [numberOf]: {
+          date: new Date(),
+          currency: "pln",
+          id: "hehee",
+          recipt: null,
+        }
+      }, { merge: true })
+      }
 
     private async getReciptNumber() {
       if(

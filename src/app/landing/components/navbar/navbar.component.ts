@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarItemModel } from '../../../shared';
+import { AuthService, NavbarItemModel } from '../../../shared';
 import * as AOS from 'aos';
 
 @Component({
@@ -9,9 +9,11 @@ import * as AOS from 'aos';
 })
 export class NavbarComponent implements OnInit {
   public navbarItems: NavbarItemModel[];
-  constructor() {}
+  public isLoged: boolean;
+  constructor(private auth: AuthService,) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.isLoged = await this.auth.returnLoginState()
     this.loadNavItems();
     AOS.init();
   }
@@ -35,10 +37,21 @@ export class NavbarComponent implements OnInit {
         name: 'Kontakt',
         route: '/contact'
       },
-      {
-        name: 'Logowanie',
-        route: '/login'
-      },
     ]
+    if(this.isLoged){
+      this.navbarItems.push(
+        {
+          name: 'Logowanie',
+          route: '/panel'
+        }
+      )
+    } else {
+      this.navbarItems.push(
+        {
+          name: 'Logowanie',
+          route: '/login'
+        }
+      )
+    }
   }
 }

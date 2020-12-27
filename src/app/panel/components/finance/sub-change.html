@@ -1,0 +1,13 @@
+<h3>Wybierz nowy typ subksrypcji</h3>
+<mat-form-field appearance="fill">
+    <mat-label>Wybierz subskrypcje</mat-label>
+    <mat-select [(value)]="data">
+      <mat-option value="0">Miesięczna</mat-option>
+      <mat-option value="1">Pół roczna</mat-option>
+      <mat-option value="2">Roczna</mat-option>
+    </mat-select>
+  </mat-form-field>
+<mat-dialog-actions>
+    <button class="mat-raised-button" mat-dialog-close>Close</button>
+    <button class="mat-raised-button mat-primary" [mat-dialog-close]=data>Save</button>
+</mat-dialog-actions>

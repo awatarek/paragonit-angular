@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)},
+  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
   {path: 'panel', loadChildren: () => import('./panel/panel.module').then(m => m.PanelModule)},
 ];
 
@@ -10,4 +11,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+
+}

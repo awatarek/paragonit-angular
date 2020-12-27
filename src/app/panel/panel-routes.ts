@@ -17,8 +17,22 @@ export let panelRoutes: Routes = [
             },
             {
                 path: 'finance',
-                component: FinanceComponent,
                 canActivate: [ AuthGuard ],
+                children: [
+                    {
+                        path:'',
+                        component: FinanceComponent,
+                    },
+                    {
+                        path:'success',
+                        component: FinanceComponent,
+                    },
+                    {
+                        path:'canceled',
+                        component: FinanceComponent,
+                    }
+
+                ],
             },
             {
                 path: '',
