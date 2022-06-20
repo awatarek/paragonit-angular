@@ -4,11 +4,6 @@ import { AboutComponent, BusinessComponent, ContactComponent, MainComponent, Per
 
 export let LandingRouter: Routes = [
     {path: '', component: LandingComponent, children:[
-        {path: 'about', component: AboutComponent },
-        {path: 'pricing', component: PricingComponent },
-        {path: 'personal', component: PersonalComponent },
-        {path: 'business', component: BusinessComponent },
-        {path: 'contact', component: ContactComponent },
         {path: '', component: MainComponent}
     ]},
 ];

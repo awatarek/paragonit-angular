@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { loadStripe } from '@stripe/stripe-js';
 import { AuthService, DbconnectService } from 'src/app/shared';
 import { MatDialogActions } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'panel-finance',
   templateUrl: './finance.component.html',
@@ -15,6 +16,7 @@ export class FinanceComponent implements OnInit{
   public data;
   public loaded = false;
   public settings;
+  public canPay: boolean;
   async ngOnInit(){
     await this.getSettings();
     await this.getData();
@@ -22,7 +24,9 @@ export class FinanceComponent implements OnInit{
   }
   constructor(
     public dialog: MatDialog,
-    private auth: AuthService, private db: DbconnectService){
+    private auth: AuthService, 
+    private db: DbconnectService,
+    private http: HttpClient){
   }
 
   async checkout() {
@@ -48,7 +52,7 @@ export class FinanceComponent implements OnInit{
         items: [{plan: SUBSCRIPTION_BASIC_PLAN_ID, quantity: 1}],
         successUrl:
           this.domain +
-          '/success?payment={CHECKOUT_SESSION_ID}',
+          '/success',
         cancelUrl: this.domain + '/canceled',
         clientReferenceId: customerEmail,
         customerEmail: customerEmail,
@@ -62,6 +66,11 @@ export class FinanceComponent implements OnInit{
 
   public async getData(){
     this.data = await this.db.showData('subscription', await this.auth.getUserUId());
+    let temp = new Date(1970, 0 ,1);
+    temp.setUTCSeconds(this.data.activeTo.seconds);
+    console.log(new Date());
+    console.log(temp);
+    this.canPay = temp < new Date();
   }
 
   public getDateOfPayment(){
@@ -107,7 +116,17 @@ export class FinanceComponent implements OnInit{
     }
   }
 
-  public cancel(){}
+  public async cancel(){
+    let sub = this.settings.subid;
+    console.log(sub)
+    this.http.post("http://localhost:8000/subs",{
+      "type": "cancel",
+      "subid": `${sub}`
+    }).subscribe(
+      data => console.log('success', data),
+      error => console.log('oops', error)
+    );
+  }
 
 }
 

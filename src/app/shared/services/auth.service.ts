@@ -14,7 +14,6 @@ export class AuthService implements OnInit{
   db = firebase.firestore();
   user$: Observable<User>;
 
-
   constructor(
       private afAuth: AngularFireAuth,
       private afs: AngularFirestore,

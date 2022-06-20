@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReceiptDetailsComponent } from './components/receipt/components/receipt-details/receipt-details.component';
 import { MatCardModule } from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [SubChange, PanelComponent, SidebarComponent, ContentComponent, FinanceComponent, MainComponent, ReceiptComponent, ReceiptDetailsComponent],
@@ -30,6 +31,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     MatCardModule,
     MatSelectModule,
+    HttpClientModule
   ]
 })
 export class PanelModule { }

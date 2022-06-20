@@ -9,6 +9,7 @@ import * as AOS from 'aos';
 })
 export class NavbarComponent implements OnInit {
   public navbarItems: NavbarItemModel[];
+  public navbarRouterItems: NavbarItemModel[] = [];
   public isLoged: boolean;
   constructor(private auth: AuthService,) {}
 
@@ -23,35 +24,40 @@ export class NavbarComponent implements OnInit {
     this.navbarItems = [
       {
         name: 'Strona główna',
-        route: ''
+        route: '#main'
       },
       {
-        name: 'O nas',
-        route: '/about'
+        name: 'Funkcje',
+        route: '#function'
       },
       {
         name: 'Cena',
-        route: '/pricing'
+        route: '#price'
+      },
+      {
+        name: 'O nas',
+        route: '#about'
       },
       {
         name: 'Kontakt',
-        route: '/contact'
+        route: '#contact'
       },
     ]
     if(this.isLoged){
-      this.navbarItems.push(
+      this.navbarRouterItems.push(
         {
           name: 'Logowanie',
           route: '/panel'
         }
       )
     } else {
-      this.navbarItems.push(
+      this.navbarRouterItems.push(
         {
           name: 'Logowanie',
           route: '/login'
         }
       )
     }
+
   }
 }

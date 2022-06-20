@@ -8,7 +8,7 @@
       <mat-card-subtitle>{{typeTranslator(settings)}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-      <button class="card-action" (click)="checkout()" mat-button>Zapłać</button>
+      <button class="card-action" (click)="checkout()" *ngIf="canPay" mat-button>Zapłać</button>
       <button class="card-action" (click)="changeSub()" mat-button>Zmień typ</button>
       <button class="card-action" (click)="cancel()" mat-button>Anuluj</button>
     </mat-card-actions>

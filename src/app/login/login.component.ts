@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder, MinLengthValidator }  from '@angular/forms';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder }  from '@angular/forms';
 import { AuthService } from '../shared';
 import { Router } from '@angular/router';
 
